@@ -1,0 +1,9 @@
+<h2>Brands</h2>
+
+<div *ngFor="let brand of brands">
+	<h3>
+		<a [title]="brand + ' product list'" [routerLink]="['/brands', brand]">
+			{{ brand }}
+		</a>
+	</h3>
+</div>

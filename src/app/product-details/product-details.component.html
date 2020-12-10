@@ -1,0 +1,26 @@
+<h2>Product Details</h2>
+
+<div *ngIf="product">
+	<h3>{{ product.name }}</h3>
+	<h4>{{ product.price | currency }}</h4>
+	<p>{{ product.description }}</p>
+
+	<form *ngIf="product.qty > 0" [formGroup]="qtyForm" (ngSubmit)="onSubmit(qtyForm.value)">
+
+		<div>
+			<label for="qty">
+      Quantity
+    </label>
+			<input id="qty" type="number" min="1" [max]="product.qty" [value]="1" required formControlName="qty">
+  </div>
+
+			<button class="button" type="submit">Buy</button>
+
+	</form>
+
+	<div *ngIf="product.qty === 0">
+		<p>
+			There is no stock available
+		</p>
+	</div>
+</div>
